@@ -24,5 +24,5 @@ while ($row = mysqli_fetch_assoc($hasil)) {
     } else {
         $pengguna = "Unknown";
     }
-    echo "[Lampu:", $row["idlampu"], "] [S:", $row["status"], "] ", "                        [User: ", $pengguna;
+    echo "(Relay:", $row["idlampu"], ")  [S:", $row["status"], "] ", "                        #User: ", $pengguna;
 }

@@ -44,7 +44,7 @@
 
         <div class="card text-center">
             <div class="card-header">
-                Tugas Akhir 2021 [<b style="color:crimson;">SIDANG JULI !!!</b>]
+                Tugas Akhir 2021 [<b style="color:crimson;">INGAT SIDANG JULI BOS !!!</b>]
                 <a href="auditD/dashBoard.php" type="button">Dataset Mode</a>
             </div>
             <div class="card-body">
