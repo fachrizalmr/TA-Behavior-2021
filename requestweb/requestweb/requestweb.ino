@@ -17,7 +17,7 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 WiFiClient client;
 
-const char* host = "192.168.1.64";
+const char* host = "192.168.1.84";
 const int httpPort = 80;
 String url;
 String request_string;
@@ -74,10 +74,10 @@ void loop (){
     }
 
     const char* Link[4];
-    Link[0]="/Behavior/readData/readData1.php";
-    Link[1]="/Behavior/readData/readData2.php";
-    Link[2]="/Behavior/readData/readData3.php";
-    Link[3]="/Behavior/readData/readData4.php";
+    Link[0]="/TA-Behavior-2021/Behavior/readData/readData1.php";
+    Link[1]="/TA-Behavior-2021/Behavior/readData/readData2.php";
+    Link[2]="/TA-Behavior-2021/Behavior/readData/readData3.php";
+    Link[3]="/TA-Behavior-2021/Behavior/readData/readData4.php";
     
     HTTPClient http;
     for(int i=0; i<4; i++){
