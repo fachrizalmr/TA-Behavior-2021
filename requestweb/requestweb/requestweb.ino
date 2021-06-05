@@ -46,7 +46,7 @@ void setup(){
       delay(500);
     }
     lcd.setCursor(0,0);
-    lcd.println(" Connected...!  ");
+    lcd.println("Connected...!   ");
     Serial.println("Connected");
     delay(1800);
     digitalWrite(LEDid, HIGH);
@@ -67,8 +67,8 @@ void loop (){
       lcd.setCursor(0,0);
       lcd.println("Info = !        ");
       lcd.setCursor(0,1);
-      Serial.println("connection failed");
-      lcd.println("connection failed");
+      Serial.println("connection fail ");
+      lcd.println("connection fail ");
       delay(2000);
       return;
     }
@@ -85,9 +85,9 @@ void loop (){
       http.GET();
       String respon = http.getString();
       lcd.setCursor(0,0);
-      lcd.println(respon + " ]      ");
+      lcd.println(respon + "#       ");
       Serial.println(respon + "]");
-      delay(1000);
+      delay(500);
     
     char responAngka[65];
     respon.toCharArray(responAngka,65);
@@ -100,60 +100,60 @@ void loop (){
     digitalWrite(LEDod, HIGH);
     delay(100);
     digitalWrite(LEDod, LOW);
-    delay(500); 
+    delay(100); 
+    digitalWrite(LEDod, HIGH);
     Serial.println("=================Last Data...=================");
-    if (responAngka[7]=='1' && responAngka[13]=='0'){
+    if (responAngka[7]=='1' && responAngka[14]=='0'){
       digitalWrite(lamPu1,HIGH);
       lcd.setCursor(0,1);
-      lcd.println(" =lampu 1 Mati=  ");
-      Serial.println("lampu 1 Mati");
+      lcd.println(" =Relay 1 Mati=  ");
+      Serial.println("Relay 1 Mati");
     }
-    else if (responAngka[7]=='1' && responAngka[13]=='1'){
+    else if (responAngka[7]=='1' && responAngka[14]=='1'){
       digitalWrite(lamPu1,LOW);
       lcd.setCursor(0,1);
-      lcd.println("=lampu 1 Hidup=  ");
-      Serial.println("lampu 1 Hidup");
+      lcd.println("=Relay 1  Hidup=  ");
+      Serial.println("Relay 1 Hidup");
     }
-    else if (responAngka[7]=='2' && responAngka[13]=='0'){
+    else if (responAngka[7]=='2' && responAngka[14]=='0'){
       digitalWrite(lamPu2,HIGH);
       lcd.setCursor(0,1);
-      lcd.println(" =lampu 2 Mati=  ");
-      Serial.println("lampu 2 Mati");
+      lcd.println(" =Relay 2 Mati=  ");
+      Serial.println("Relay 2 Mati");
     }
-    else if (responAngka[7]=='2' && responAngka[13]=='1'){
+    else if (responAngka[7]=='2' && responAngka[14]=='1'){
       digitalWrite(lamPu2,LOW);
       lcd.setCursor(0,1);
-      lcd.println("=lampu 2 Hidup=  ");
-      Serial.println("lampu 2 Hidup");
+      lcd.println("=Relay 2  Hidup=  ");
+      Serial.println("Relay 2 Hidup");
     }
-    else if (responAngka[7]=='3' && responAngka[13]=='0'){
+    else if (responAngka[7]=='3' && responAngka[14]=='0'){
       digitalWrite(lamPu3,HIGH);
       lcd.setCursor(0,1);
-      lcd.println(" =lampu 3 Mati=  ");
-      Serial.println("lampu 3 Mati");
+      lcd.println(" =Relay 3 Mati=  ");
+      Serial.println("Relay 3 Mati");
     }
-    else if (responAngka[7]=='3' && responAngka[13]=='1'){
+    else if (responAngka[7]=='3' && responAngka[14]=='1'){
       digitalWrite(lamPu3,LOW);
       lcd.setCursor(0,1);
-      lcd.println("=lampu 3 Hidup=  ");
-      Serial.println("lampu 3 Hidup");
+      lcd.println("=Relay 3  Hidup=  ");
+      Serial.println("Relay 3 Hidup");
     }
-    else if (responAngka[7]=='4' && responAngka[13]=='0'){
+    else if (responAngka[7]=='4' && responAngka[14]=='0'){
       digitalWrite(lamPu4,HIGH);
       lcd.setCursor(0,1);
-      lcd.println(" =lampu 4 Mati=  ");
-      Serial.println("lampu 4 Mati");
+      lcd.println(" =Relay 4 Mati=  ");
+      Serial.println("Relay 4 Mati");
     }
-    else if (responAngka[7]=='4' && responAngka[13]=='1'){
+    else if (responAngka[7]=='4' && responAngka[14]=='1'){
       digitalWrite(lamPu4,LOW);
       lcd.setCursor(0,1);
-      lcd.println("=lampu 4 Hidup=  ");
-      Serial.println("lampu 4 Hidup");
+      lcd.println("=Relay 4  Hidup=  ");
+      Serial.println("Relay 4 Hidup");
     }
     lcd.setCursor(0,0);
     lcd.println(">----<LOGs>----<");
     Serial.println("=====================LOGs=====================");
-    digitalWrite(LEDod, HIGH);
     delay(500);
     }
 }
