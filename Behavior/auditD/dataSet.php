@@ -1,6 +1,8 @@
 <?php
 $connect = mysqli_connect('localhost', 'root', '', 'dbbehavior');
 $behavior;
+
+date_default_timezone_set('Asia/Jakarta');
 $hariNow = date("l");
 $hari = 0;
 if ($hariNow == 'Monday') {
