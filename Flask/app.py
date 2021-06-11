@@ -39,10 +39,18 @@ def index():
 
 @app.route('/audit', methods=['GET', 'POST'])
 def audit():
-    doc = dbCloud.collection("Backpropagation").document("prediksi")
-    doc.set({"idrelay": 1, "waktu": 54, "hari": 4, "status": relay1})
+    doc = dbCloud.collection("Backpropagation").document("relay1")
+    doc.set({"pengguna": "fahri", "waktu": 54, "hari": 4, "status": relay1})
+    doc = dbCloud.collection("Backpropagation").document("relay2")
+    doc.set({"pengguna": "nando", "waktu": 54, "hari": 4, "status": relay1})
+    doc = dbCloud.collection("Backpropagation").document("relay3")
+    doc.set({"pengguna": "rahel", "waktu": 54, "hari": 4, "status": relay1})
+    doc = dbCloud.collection("Backpropagation").document("relay4")
+    doc.set({"pengguna": "anya", "waktu": 54, "hari": 4, "status": relay1})
+
     dbRealTime.child("relay1").update({"relay1": relay1})
-    return render_template('audit.html', relay1)
+
+    return render_template('audit.html')
 
 
 if __name__ == '__main__':
