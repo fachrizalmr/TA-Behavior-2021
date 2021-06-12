@@ -7,23 +7,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Behavior</title>
-    <script type="text/javascript" src="{{ url_for('static', filename='jquery/mode.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js')}}"></script>
+</head>
 <body>
     <div class="container" style="text-align: center; margin-top: 50px;">
     <h2>Monitoring Penyaluran Energi Listrik Ke <b>RELAY 4 Channel</b></h2>
 
     <div class="card text-center">
         <div class="card-header">
-            Tugas Akhir 2021 [<b style="color:crimson;">INGAT SIDANG JULI BOS !!!</b>]
-            <a href="/audit" type="button">Dataset Mode</a>
+            Tugas Akhir 2021 [ mode : <b style="color:crimson;">{{ mode }}</b> ]
+            {% if mode == 'manual' %}
+            <a href="/audit">Control Relay</a>
+            {% endif %}
         </div>
         <div class="card-body">
             <h5 class="card-title">
+                
                 <form class="form-group" method="POST" action="/">
-                    MODE BEHAVIOR <input type="checkbox" value="behavior" name="mode">
-                    MODE MANUAL <input type="checkbox" value="manual" name="mode">
-                    <button class="btn" type="submit">-></button>
+                    <button class="btn btn-dark" type="submit" value="behavior" name="mode">Behavior</button>
+                    <button class="btn btn-light" type="submit" value="manual" name="mode">Manual</button>
                 </form>
             </h5>
 
@@ -42,10 +44,31 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>LOGO LAMPU</td>
-                            <td>FACHRI</td>
-                            <td>JUMAT, 15.30-15.35</td>
-                            <td>ON</td>
+                            <td><img src="{{ url_for('static', filename=logoRelay1)}}"></td>
+                            <td>@Fachri</td>
+                            <td>{{ waktuRelay1 }}</td>
+                            <td>{{ statusRelay1 }}</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="{{ url_for('static', filename=logoRelay2)}}"></td>
+                            <td>@Nando</td>
+                            <td>{{ waktuRelay2 }}</td>
+                            <td>{{ statusRelay2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><img src="{{ url_for('static', filename=logoRelay3)}}"></td>
+                            <td>@Rahel</td>
+                            <td>{{ waktuRelay3 }}</td>
+                            <td>{{ statusRelay3 }}</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><img src="{{ url_for('static', filename=logoRelay4)}}"></td>
+                            <td>@Anya</td>
+                            <td>{{ waktuRelay4 }}</td>
+                            <td>{{ statusRelay4 }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -57,9 +80,9 @@
     </div>
 
 </div>
-<script src="{{ url_for('static', filename='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js') }}" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js') }}" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') }}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

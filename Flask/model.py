@@ -1,13 +1,66 @@
-from os import read
 import tensorflow as tf
 import numpy as np
 import pandas as pd
+import time
+from datetime import datetime
+from datetime import date
+import schedule
+import pyrebase
+import waktu as wk
+import json
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from tensorflow.python.eager.context import num_gpus
+from os import read, stat_result
+from re import T, X
+
+config = {
+    "apiKey": "AIzaSyAUXrAk1Z_8kRa3NH1czDXUE5xPTP-gJ_Y",
+    "authDomain": "cloudta2021-fa4af.firebaseapp.com",
+    "databaseURL": "https://cloudta2021-fa4af-default-rtdb.firebaseio.com",
+    "storageBucket": "cloudta2021-fa4af.appspot.com"
+}
+
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
+timeNow = datetime.now()
+jam = timeNow.hour
+menit = timeNow.minute
 
 
-def preprocessingData():
+def cekHari():
+    cekNow = date.today().strftime("%A")
+    if cekNow == 'Monday':
+        now = 1
+
+    elif cekNow == 'Tuesday':
+        now = 2
+
+    elif cekNow == 'Wednesday':
+        now = 3
+
+    elif cekNow == 'Thursday':
+        now = 4
+
+    elif cekNow == 'Friday':
+        now = 5
+
+    elif cekNow == 'Saturday':
+        now = 6
+
+    elif cekNow == 'Sunday':
+        now = 7
+
+    return now
+
+
+waktu = wk.cekWaktu(jam, menit)
+hari = cekHari()
+idrelay = [1, 2, 3, 4]
+
+
+def preprocessingData(w, h, ir):
     data = pd.read_csv('FixData.csv')
     data = pd.DataFrame(data, columns=['waktu', 'hari', 'idrelay', 'status'])
     x = data.iloc[:, 0:3].values
@@ -23,29 +76,30 @@ def preprocessingData():
     model.add(tf.keras.layers.Dense(units=2, activation='softmax'))
     model.compile(optimizer='adam',
                   loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.fit(x_train, y_train, epochs=1200, batch_size=128)
-    df = pd.read_csv('readData.csv')
+    model.fit(x_train, y_train, epochs=1100, batch_size=128)
+    xData = model.evaluate(x_test, y_test, batch_size=128)
+    df = pd.DataFrame({'waktu': [w], 'hari': [h], 'idrelay': [ir]})
     dataf = df.values
     dataf = sc.fit_transform(dataf)
     predict = model.predict(dataf)
-    predict = model.predict(dataf)
-    arr_pred = []
-    for i in range(len(predict)):
-        arr_pred.append(np.argmax(predict[i]))
 
-    df['prediksi'] = arr_pred
+    yData = np.argmax(predict)
+    akurasi = float(xData[1])
+    status = int(yData)
 
-    df.to_csv('HasilPredict.csv', index=False)
-
-    dfHS = pd.read_csv('HasilPredict.csv', index_col=0)
-    return dfHS
+    return status, akurasi
 
 
-data_preprocessing = preprocessingData()
-print(data_preprocessing)
+def proses_kirim():
+    for i in range(4):
+        data_preprocessing = preprocessingData(waktu, hari, idrelay[i])
+        print(waktu, hari, idrelay[i],
+              data_preprocessing[0], data_preprocessing[1])
+        head = 'relay'
+        head += str(i+1)
+        db.child(head).update(
+            {"waktu": waktu, "hari": hari, "idrelay": idrelay[i], "status": data_preprocessing[0], "akurasi": data_preprocessing[1]})
 
-# print("Status = ", data_preprocessing)
 
-# df['prediksi'] = arr_pred
-
-# df.to_csv('HasilPredict.csv', index=False)
+while True:
+    proses_kirim()
