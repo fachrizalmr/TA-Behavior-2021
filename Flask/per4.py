@@ -27,7 +27,6 @@ db = firebase.database()
 timeNow = datetime.now()
 jam = timeNow.hour
 menit = timeNow.minute
-timestamp = timeNow.strftime("%H:%M")
 
 
 def cekHari():
@@ -78,7 +77,7 @@ def preprocessingData(w, h):
     model.add(tf.keras.layers.Dense(units=2, activation='softmax'))
     model.compile(optimizer='adam',
                   loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.fit(x_train, y_train, epochs=750, batch_size=128)
+    model.fit(x_train, y_train, epochs=12, batch_size=128)
     xData = model.evaluate(x_test, y_test, batch_size=128)
     df = pd.DataFrame({'waktu': [w, w, w, w], 'hari': [
                       h, h, h, h], 'idrelay': [1, 2, 3, 4]})
@@ -98,13 +97,12 @@ def preprocessingData(w, h):
             convert = "ON"
         head = 'relay'
         head += str(i+1)
-        db.child("Relay4Channel").child("behavior").child(head).update(
-            {"waktu": str(timestamp), "interval": w, "hari": str(day), "idrelay": idrelay[i], "status": convert})
+        db.child("behavior").child(head).update(
+            {"waktu": str(timeNow), "interval": w, "hari": str(day), "idrelay": idrelay[i], "status": convert})
 
-    db.child("Relay4Channel").child("behavior").update({"akurasi": akurasi})
+    db.child("behavior").update({"akurasi": akurasi})
 
     return akurasi
 
 
-while True:
-    preprocessingData(waktu, hari)
+preprocessingData(waktu, hari)

@@ -1,867 +1,865 @@
+def cekWaktu(j, m):
+    if j == 0 and (m > 0 and m < 5):
+        result = 1
 
-def cekWaktu(jam, menit):
+    elif j == 0 and (m > 5 and m < 10):
+        result = 2
 
-    if jam == 0 and (menit > 0 and menit < 5):
-        Now = 1
+    elif j == 0 and (m > 10 and m < 15):
+        result = 3
 
-    elif jam == 0 and (menit > 5 and menit < 10):
-        Now = 2
+    elif j == 0 and (m > 15 and m < 20):
+        result = 4
 
-    elif jam == 0 and (menit > 10 and menit < 15):
-        Now = 3
+    elif j == 0 and (m > 20 and m < 25):
+        result = 5
 
-    elif jam == 0 and (menit > 15 and menit < 20):
-        Now = 4
+    elif j == 0 and (m > 25 and m < 30):
+        result = 6
 
-    elif jam == 0 and (menit > 20 and menit < 25):
-        Now = 5
+    elif j == 0 and (m > 30 and m < 35):
+        result = 7
 
-    elif jam == 0 and (menit > 25 and menit < 30):
-        Now = 6
+    elif j == 0 and (m > 35 and m < 40):
+        result = 8
 
-    elif jam == 0 and (menit > 30 and menit < 35):
-        Now = 7
+    elif j == 0 and (m > 40 and m < 45):
+        result = 9
 
-    elif jam == 0 and (menit > 35 and menit < 40):
-        Now = 8
+    elif j == 0 and (m > 45 and m < 50):
+        result = 10
 
-    elif jam == 0 and (menit > 40 and menit < 45):
-        Now = 9
+    elif j == 0 and (m > 50 and m < 55):
+        result = 11
 
-    elif jam == 0 and (menit > 45 and menit < 50):
-        Now = 10
+    elif j == 0 and (m > 55 and m < 0):
+        result = 12
 
-    elif jam == 0 and (menit > 50 and menit < 55):
-        Now = 11
+    elif j == 1 and (m > 0 and m < 5):
+        result = 13
 
-    elif jam == 0 and (menit > 55 and menit < 0):
-        Now = 12
+    elif j == 1 and (m > 5 and m < 10):
+        result = 14
 
-    elif jam == 1 and (menit > 0 and menit < 5):
-        Now = 13
+    elif j == 1 and (m > 10 and m < 15):
+        result = 15
 
-    elif jam == 1 and (menit > 5 and menit < 10):
-        Now = 14
+    elif j == 1 and (m > 15 and m < 20):
+        result = 16
 
-    elif jam == 1 and (menit > 10 and menit < 15):
-        Now = 15
+    elif j == 1 and (m > 20 and m < 25):
+        result = 17
 
-    elif jam == 1 and (menit > 15 and menit < 20):
-        Now = 16
+    elif j == 1 and (m > 25 and m < 30):
+        result = 18
 
-    elif jam == 1 and (menit > 20 and menit < 25):
-        Now = 17
+    elif j == 1 and (m > 30 and m < 35):
+        result = 19
 
-    elif jam == 1 and (menit > 25 and menit < 30):
-        Now = 18
+    elif j == 1 and (m > 35 and m < 40):
+        result = 20
 
-    elif jam == 1 and (menit > 30 and menit < 35):
-        Now = 19
+    elif j == 1 and (m > 40 and m < 45):
+        result = 21
 
-    elif jam == 1 and (menit > 35 and menit < 40):
-        Now = 20
+    elif j == 1 and (m > 45 and m < 50):
+        result = 22
 
-    elif jam == 1 and (menit > 40 and menit < 45):
-        Now = 21
+    elif j == 1 and (m > 50 and m < 55):
+        result = 23
 
-    elif jam == 1 and (menit > 45 and menit < 50):
-        Now = 22
+    elif j == 1 and (m > 55 and m < 0):
+        result = 24
 
-    elif jam == 1 and (menit > 50 and menit < 55):
-        Now = 23
+    elif j == 2 and (m > 0 and m < 5):
+        result = 25
 
-    elif jam == 1 and (menit > 55 and menit < 0):
-        Now = 24
+    elif j == 2 and (m > 5 and m < 10):
+        result = 26
 
-    elif jam == 2 and (menit > 0 and menit < 5):
-        Now = 25
+    elif j == 2 and (m > 10 and m < 15):
+        result = 27
 
-    elif jam == 2 and (menit > 5 and menit < 10):
-        Now = 26
+    elif j == 2 and (m > 15 and m < 20):
+        result = 28
 
-    elif jam == 2 and (menit > 10 and menit < 15):
-        Now = 27
+    elif j == 2 and (m > 20 and m < 25):
+        result = 29
 
-    elif jam == 2 and (menit > 15 and menit < 20):
-        Now = 28
+    elif j == 2 and (m > 25 and m < 30):
+        result = 30
 
-    elif jam == 2 and (menit > 20 and menit < 25):
-        Now = 29
+    elif j == 2 and (m > 30 and m < 35):
+        result = 31
 
-    elif jam == 2 and (menit > 25 and menit < 30):
-        Now = 30
+    elif j == 2 and (m > 35 and m < 40):
+        result = 32
 
-    elif jam == 2 and (menit > 30 and menit < 35):
-        Now = 31
+    elif j == 2 and (m > 40 and m < 45):
+        result = 33
 
-    elif jam == 2 and (menit > 35 and menit < 40):
-        Now = 32
+    elif j == 2 and (m > 45 and m < 50):
+        result = 34
 
-    elif jam == 2 and (menit > 40 and menit < 45):
-        Now = 33
+    elif j == 2 and (m > 50 and m < 55):
+        result = 35
 
-    elif jam == 2 and (menit > 45 and menit < 50):
-        Now = 34
+    elif j == 2 and (m > 55 and m < 0):
+        result = 36
 
-    elif jam == 2 and (menit > 50 and menit < 55):
-        Now = 35
+    elif j == 3 and (m > 0 and m < 5):
+        result = 37
 
-    elif jam == 2 and (menit > 55 and menit < 0):
-        Now = 36
+    elif j == 3 and (m > 5 and m < 10):
+        result = 38
 
-    elif jam == 3 and (menit > 0 and menit < 5):
-        Now = 37
+    elif j == 3 and (m > 10 and m < 15):
+        result = 39
 
-    elif jam == 3 and (menit > 5 and menit < 10):
-        Now = 38
+    elif j == 3 and (m > 15 and m < 20):
+        result = 40
 
-    elif jam == 3 and (menit > 10 and menit < 15):
-        Now = 39
+    elif j == 3 and (m > 20 and m < 25):
+        result = 41
 
-    elif jam == 3 and (menit > 15 and menit < 20):
-        Now = 40
+    elif j == 3 and (m > 25 and m < 30):
+        result = 42
 
-    elif jam == 3 and (menit > 20 and menit < 25):
-        Now = 41
+    elif j == 3 and (m > 30 and m < 35):
+        result = 43
 
-    elif jam == 3 and (menit > 25 and menit < 30):
-        Now = 42
+    elif j == 3 and (m > 35 and m < 40):
+        result = 44
 
-    elif jam == 3 and (menit > 30 and menit < 35):
-        Now = 43
+    elif j == 3 and (m > 40 and m < 45):
+        result = 45
 
-    elif jam == 3 and (menit > 35 and menit < 40):
-        Now = 44
+    elif j == 3 and (m > 45 and m < 50):
+        result = 46
 
-    elif jam == 3 and (menit > 40 and menit < 45):
-        Now = 45
+    elif j == 3 and (m > 50 and m < 55):
+        result = 47
 
-    elif jam == 3 and (menit > 45 and menit < 50):
-        Now = 46
+    elif j == 3 and (m > 55 and m < 0):
+        result = 48
 
-    elif jam == 3 and (menit > 50 and menit < 55):
-        Now = 47
+    elif j == 4 and (m > 0 and m < 5):
+        result = 49
 
-    elif jam == 3 and (menit > 55 and menit < 0):
-        Now = 48
+    elif j == 4 and (m > 5 and m < 10):
+        result = 50
 
-    elif jam == 4 and (menit > 0 and menit < 5):
-        Now = 49
+    elif j == 4 and (m > 10 and m < 15):
+        result = 51
 
-    elif jam == 4 and (menit > 5 and menit < 10):
-        Now = 50
+    elif j == 4 and (m > 15 and m < 20):
+        result = 52
 
-    elif jam == 4 and (menit > 10 and menit < 15):
-        Now = 51
+    elif j == 4 and (m > 20 and m < 25):
+        result = 53
 
-    elif jam == 4 and (menit > 15 and menit < 20):
-        Now = 52
+    elif j == 4 and (m > 25 and m < 30):
+        result = 54
 
-    elif jam == 4 and (menit > 20 and menit < 25):
-        Now = 53
+    elif j == 4 and (m > 30 and m < 35):
+        result = 55
 
-    elif jam == 4 and (menit > 25 and menit < 30):
-        Now = 54
+    elif j == 4 and (m > 35 and m < 40):
+        result = 56
 
-    elif jam == 4 and (menit > 30 and menit < 35):
-        Now = 55
+    elif j == 4 and (m > 40 and m < 45):
+        result = 57
 
-    elif jam == 4 and (menit > 35 and menit < 40):
-        Now = 56
+    elif j == 4 and (m > 45 and m < 50):
+        result = 58
 
-    elif jam == 4 and (menit > 40 and menit < 45):
-        Now = 57
+    elif j == 4 and (m > 50 and m < 55):
+        result = 59
 
-    elif jam == 4 and (menit > 45 and menit < 50):
-        Now = 58
+    elif j == 4 and (m > 55 and m < 0):
+        result = 60
 
-    elif jam == 4 and (menit > 50 and menit < 55):
-        Now = 59
+    elif j == 5 and (m > 0 and m < 5):
+        result = 61
 
-    elif jam == 4 and (menit > 55 and menit < 0):
-        Now = 60
+    elif j == 5 and (m > 5 and m < 10):
+        result = 62
 
-    elif jam == 5 and (menit > 0 and menit < 5):
-        Now = 61
+    elif j == 5 and (m > 10 and m < 15):
+        result = 63
 
-    elif jam == 5 and (menit > 5 and menit < 10):
-        Now = 62
+    elif j == 5 and (m > 15 and m < 20):
+        result = 64
 
-    elif jam == 5 and (menit > 10 and menit < 15):
-        Now = 63
+    elif j == 5 and (m > 20 and m < 25):
+        result = 65
 
-    elif jam == 5 and (menit > 15 and menit < 20):
-        Now = 64
+    elif j == 5 and (m > 25 and m < 30):
+        result = 66
 
-    elif jam == 5 and (menit > 20 and menit < 25):
-        Now = 65
+    elif j == 5 and (m > 30 and m < 35):
+        result = 67
 
-    elif jam == 5 and (menit > 25 and menit < 30):
-        Now = 66
+    elif j == 5 and (m > 35 and m < 40):
+        result = 68
 
-    elif jam == 5 and (menit > 30 and menit < 35):
-        Now = 67
+    elif j == 5 and (m > 40 and m < 45):
+        result = 69
 
-    elif jam == 5 and (menit > 35 and menit < 40):
-        Now = 68
+    elif j == 5 and (m > 45 and m < 50):
+        result = 70
 
-    elif jam == 5 and (menit > 40 and menit < 45):
-        Now = 69
+    elif j == 5 and (m > 50 and m < 55):
+        result = 71
 
-    elif jam == 5 and (menit > 45 and menit < 50):
-        Now = 70
+    elif j == 5 and (m > 55 and m < 0):
+        result = 72
 
-    elif jam == 5 and (menit > 50 and menit < 55):
-        Now = 71
+    elif j == 6 and (m > 0 and m < 5):
+        result = 73
 
-    elif jam == 5 and (menit > 55 and menit < 0):
-        Now = 72
+    elif j == 6 and (m > 5 and m < 10):
+        result = 74
 
-    elif jam == 6 and (menit > 0 and menit < 5):
-        Now = 73
+    elif j == 6 and (m > 10 and m < 15):
+        result = 75
 
-    elif jam == 6 and (menit > 5 and menit < 10):
-        Now = 74
+    elif j == 6 and (m > 15 and m < 20):
+        result = 76
 
-    elif jam == 6 and (menit > 10 and menit < 15):
-        Now = 75
+    elif j == 6 and (m > 20 and m < 25):
+        result = 77
 
-    elif jam == 6 and (menit > 15 and menit < 20):
-        Now = 76
+    elif j == 6 and (m > 25 and m < 30):
+        result = 78
 
-    elif jam == 6 and (menit > 20 and menit < 25):
-        Now = 77
+    elif j == 6 and (m > 30 and m < 35):
+        result = 79
 
-    elif jam == 6 and (menit > 25 and menit < 30):
-        Now = 78
+    elif j == 6 and (m > 35 and m < 40):
+        result = 80
 
-    elif jam == 6 and (menit > 30 and menit < 35):
-        Now = 79
+    elif j == 6 and (m > 40 and m < 45):
+        result = 81
 
-    elif jam == 6 and (menit > 35 and menit < 40):
-        Now = 80
+    elif j == 6 and (m > 45 and m < 50):
+        result = 82
 
-    elif jam == 6 and (menit > 40 and menit < 45):
-        Now = 81
+    elif j == 6 and (m > 50 and m < 55):
+        result = 83
 
-    elif jam == 6 and (menit > 45 and menit < 50):
-        Now = 82
+    elif j == 6 and (m > 55 and m < 0):
+        result = 84
 
-    elif jam == 6 and (menit > 50 and menit < 55):
-        Now = 83
+    elif j == 7 and (m > 0 and m < 5):
+        result = 85
 
-    elif jam == 6 and (menit > 55 and menit < 0):
-        Now = 84
+    elif j == 7 and (m > 5 and m < 10):
+        result = 86
 
-    elif jam == 7 and (menit > 0 and menit < 5):
-        Now = 85
+    elif j == 7 and (m > 10 and m < 15):
+        result = 87
 
-    elif jam == 7 and (menit > 5 and menit < 10):
-        Now = 86
+    elif j == 7 and (m > 15 and m < 20):
+        result = 88
 
-    elif jam == 7 and (menit > 10 and menit < 15):
-        Now = 87
+    elif j == 7 and (m > 20 and m < 25):
+        result = 89
 
-    elif jam == 7 and (menit > 15 and menit < 20):
-        Now = 88
+    elif j == 7 and (m > 25 and m < 30):
+        result = 90
 
-    elif jam == 7 and (menit > 20 and menit < 25):
-        Now = 89
+    elif j == 7 and (m > 30 and m < 35):
+        result = 91
 
-    elif jam == 7 and (menit > 25 and menit < 30):
-        Now = 90
+    elif j == 7 and (m > 35 and m < 40):
+        result = 92
 
-    elif jam == 7 and (menit > 30 and menit < 35):
-        Now = 91
+    elif j == 7 and (m > 40 and m < 45):
+        result = 93
 
-    elif jam == 7 and (menit > 35 and menit < 40):
-        Now = 92
+    elif j == 7 and (m > 45 and m < 50):
+        result = 94
 
-    elif jam == 7 and (menit > 40 and menit < 45):
-        Now = 93
+    elif j == 7 and (m > 50 and m < 55):
+        result = 95
 
-    elif jam == 7 and (menit > 45 and menit < 50):
-        Now = 94
+    elif j == 7 and (m > 55 and m < 0):
+        result = 96
 
-    elif jam == 7 and (menit > 50 and menit < 55):
-        Now = 95
+    elif j == 8 and (m > 0 and m < 5):
+        result = 97
 
-    elif jam == 7 and (menit > 55 and menit < 0):
-        Now = 96
+    elif j == 8 and (m > 5 and m < 10):
+        result = 98
 
-    elif jam == 8 and (menit > 0 and menit < 5):
-        Now = 97
+    elif j == 8 and (m > 10 and m < 15):
+        result = 99
 
-    elif jam == 8 and (menit > 5 and menit < 10):
-        Now = 98
+    elif j == 8 and (m > 15 and m < 20):
+        result = 100
 
-    elif jam == 8 and (menit > 10 and menit < 15):
-        Now = 99
+    elif j == 8 and (m > 20 and m < 25):
+        result = 101
 
-    elif jam == 8 and (menit > 15 and menit < 20):
-        Now = 100
+    elif j == 8 and (m > 25 and m < 30):
+        result = 102
 
-    elif jam == 8 and (menit > 20 and menit < 25):
-        Now = 101
+    elif j == 8 and (m > 30 and m < 35):
+        result = 103
 
-    elif jam == 8 and (menit > 25 and menit < 30):
-        Now = 102
+    elif j == 8 and (m > 35 and m < 40):
+        result = 104
 
-    elif jam == 8 and (menit > 30 and menit < 35):
-        Now = 103
+    elif j == 8 and (m > 40 and m < 45):
+        result = 105
 
-    elif jam == 8 and (menit > 35 and menit < 40):
-        Now = 104
+    elif j == 8 and (m > 45 and m < 50):
+        result = 106
 
-    elif jam == 8 and (menit > 40 and menit < 45):
-        Now = 105
+    elif j == 8 and (m > 50 and m < 55):
+        result = 107
 
-    elif jam == 8 and (menit > 45 and menit < 50):
-        Now = 106
+    elif j == 8 and (m > 55 and m < 0):
+        result = 108
 
-    elif jam == 8 and (menit > 50 and menit < 55):
-        Now = 107
+    elif j == 9 and (m > 0 and m < 5):
+        result = 109
 
-    elif jam == 8 and (menit > 55 and menit < 0):
-        Now = 108
+    elif j == 9 and (m > 5 and m < 10):
+        result = 110
 
-    elif jam == 9 and (menit > 0 and menit < 5):
-        Now = 109
+    elif j == 9 and (m > 10 and m < 15):
+        result = 111
 
-    elif jam == 9 and (menit > 5 and menit < 10):
-        Now = 110
+    elif j == 9 and (m > 15 and m < 20):
+        result = 112
 
-    elif jam == 9 and (menit > 10 and menit < 15):
-        Now = 111
+    elif j == 9 and (m > 20 and m < 25):
+        result = 113
 
-    elif jam == 9 and (menit > 15 and menit < 20):
-        Now = 112
+    elif j == 9 and (m > 25 and m < 30):
+        result = 114
 
-    elif jam == 9 and (menit > 20 and menit < 25):
-        Now = 113
+    elif j == 9 and (m > 30 and m < 35):
+        result = 115
 
-    elif jam == 9 and (menit > 25 and menit < 30):
-        Now = 114
+    elif j == 9 and (m > 35 and m < 40):
+        result = 116
 
-    elif jam == 9 and (menit > 30 and menit < 35):
-        Now = 115
+    elif j == 9 and (m > 40 and m < 45):
+        result = 117
 
-    elif jam == 9 and (menit > 35 and menit < 40):
-        Now = 116
+    elif j == 9 and (m > 45 and m < 50):
+        result = 118
 
-    elif jam == 9 and (menit > 40 and menit < 45):
-        Now = 117
+    elif j == 9 and (m > 50 and m < 55):
+        result = 119
 
-    elif jam == 9 and (menit > 45 and menit < 50):
-        Now = 118
+    elif j == 9 and (m > 55 and m < 0):
+        result = 120
 
-    elif jam == 9 and (menit > 50 and menit < 55):
-        Now = 119
+    elif j == 10 and (m > 0 and m < 5):
+        result = 121
 
-    elif jam == 9 and (menit > 55 and menit < 0):
-        Now = 120
+    elif j == 10 and (m > 5 and m < 10):
+        result = 122
 
-    elif jam == 10 and (menit > 0 and menit < 5):
-        Now = 121
+    elif j == 10 and (m > 10 and m < 15):
+        result = 123
 
-    elif jam == 10 and (menit > 5 and menit < 10):
-        Now = 122
+    elif j == 10 and (m > 15 and m < 20):
+        result = 124
 
-    elif jam == 10 and (menit > 10 and menit < 15):
-        Now = 123
+    elif j == 10 and (m > 20 and m < 25):
+        result = 125
 
-    elif jam == 10 and (menit > 15 and menit < 20):
-        Now = 124
+    elif j == 10 and (m > 25 and m < 30):
+        result = 126
 
-    elif jam == 10 and (menit > 20 and menit < 25):
-        Now = 125
+    elif j == 10 and (m > 30 and m < 35):
+        result = 127
 
-    elif jam == 10 and (menit > 25 and menit < 30):
-        Now = 126
+    elif j == 10 and (m > 35 and m < 40):
+        result = 128
 
-    elif jam == 10 and (menit > 30 and menit < 35):
-        Now = 127
+    elif j == 10 and (m > 40 and m < 45):
+        result = 129
 
-    elif jam == 10 and (menit > 35 and menit < 40):
-        Now = 128
+    elif j == 10 and (m > 45 and m < 50):
+        result = 130
 
-    elif jam == 10 and (menit > 40 and menit < 45):
-        Now = 129
+    elif j == 10 and (m > 50 and m < 55):
+        result = 131
 
-    elif jam == 10 and (menit > 45 and menit < 50):
-        Now = 130
+    elif j == 10 and (m > 55 and m < 0):
+        result = 132
 
-    elif jam == 10 and (menit > 50 and menit < 55):
-        Now = 131
+    elif j == 11 and (m > 0 and m < 5):
+        result = 133
 
-    elif jam == 10 and (menit > 55 and menit < 0):
-        Now = 132
+    elif j == 11 and (m > 5 and m < 10):
+        result = 134
 
-    elif jam == 11 and (menit > 0 and menit < 5):
-        Now = 133
+    elif j == 11 and (m > 10 and m < 15):
+        result = 135
 
-    elif jam == 11 and (menit > 5 and menit < 10):
-        Now = 134
+    elif j == 11 and (m > 15 and m < 20):
+        result = 136
 
-    elif jam == 11 and (menit > 10 and menit < 15):
-        Now = 135
+    elif j == 11 and (m > 20 and m < 25):
+        result = 137
 
-    elif jam == 11 and (menit > 15 and menit < 20):
-        Now = 136
+    elif j == 11 and (m > 25 and m < 30):
+        result = 138
 
-    elif jam == 11 and (menit > 20 and menit < 25):
-        Now = 137
+    elif j == 11 and (m > 30 and m < 35):
+        result = 139
 
-    elif jam == 11 and (menit > 25 and menit < 30):
-        Now = 138
+    elif j == 11 and (m > 35 and m < 40):
+        result = 140
 
-    elif jam == 11 and (menit > 30 and menit < 35):
-        Now = 139
+    elif j == 11 and (m > 40 and m < 45):
+        result = 141
 
-    elif jam == 11 and (menit > 35 and menit < 40):
-        Now = 140
+    elif j == 11 and (m > 45 and m < 50):
+        result = 142
 
-    elif jam == 11 and (menit > 40 and menit < 45):
-        Now = 141
+    elif j == 11 and (m > 50 and m < 55):
+        result = 143
 
-    elif jam == 11 and (menit > 45 and menit < 50):
-        Now = 142
+    elif j == 11 and (m > 55 and m < 0):
+        result = 144
 
-    elif jam == 11 and (menit > 50 and menit < 55):
-        Now = 143
+    elif j == 12 and (m > 0 and m < 5):
+        result = 145
 
-    elif jam == 11 and (menit > 55 and menit < 0):
-        Now = 144
+    elif j == 12 and (m > 5 and m < 10):
+        result = 146
 
-    elif jam == 12 and (menit > 0 and menit < 5):
-        Now = 145
+    elif j == 12 and (m > 10 and m < 15):
+        result = 147
 
-    elif jam == 12 and (menit > 5 and menit < 10):
-        Now = 146
+    elif j == 12 and (m > 15 and m < 20):
+        result = 148
 
-    elif jam == 12 and (menit > 10 and menit < 15):
-        Now = 147
+    elif j == 12 and (m > 20 and m < 25):
+        result = 149
 
-    elif jam == 12 and (menit > 15 and menit < 20):
-        Now = 148
+    elif j == 12 and (m > 25 and m < 30):
+        result = 150
 
-    elif jam == 12 and (menit > 20 and menit < 25):
-        Now = 149
+    elif j == 12 and (m > 30 and m < 35):
+        result = 151
 
-    elif jam == 12 and (menit > 25 and menit < 30):
-        Now = 150
+    elif j == 12 and (m > 35 and m < 40):
+        result = 152
 
-    elif jam == 12 and (menit > 30 and menit < 35):
-        Now = 151
+    elif j == 12 and (m > 40 and m < 45):
+        result = 153
 
-    elif jam == 12 and (menit > 35 and menit < 40):
-        Now = 152
+    elif j == 12 and (m > 45 and m < 50):
+        result = 154
 
-    elif jam == 12 and (menit > 40 and menit < 45):
-        Now = 153
+    elif j == 12 and (m > 50 and m < 55):
+        result = 155
 
-    elif jam == 12 and (menit > 45 and menit < 50):
-        Now = 154
+    elif j == 12 and (m > 55 and m < 0):
+        result = 156
 
-    elif jam == 12 and (menit > 50 and menit < 55):
-        Now = 155
+    elif j == 13 and (m > 0 and m < 5):
+        result = 157
 
-    elif jam == 12 and (menit > 55 and menit < 0):
-        Now = 156
+    elif j == 13 and (m > 5 and m < 10):
+        result = 158
 
-    elif jam == 13 and (menit > 0 and menit < 5):
-        Now = 157
+    elif j == 13 and (m > 10 and m < 15):
+        result = 159
 
-    elif jam == 13 and (menit > 5 and menit < 10):
-        Now = 158
+    elif j == 13 and (m > 15 and m < 20):
+        result = 160
 
-    elif jam == 13 and (menit > 10 and menit < 15):
-        Now = 159
+    elif j == 13 and (m > 20 and m < 25):
+        result = 161
 
-    elif jam == 13 and (menit > 15 and menit < 20):
-        Now = 160
+    elif j == 13 and (m > 25 and m < 30):
+        result = 162
 
-    elif jam == 13 and (menit > 20 and menit < 25):
-        Now = 161
+    elif j == 13 and (m > 30 and m < 35):
+        result = 163
 
-    elif jam == 13 and (menit > 25 and menit < 30):
-        Now = 162
+    elif j == 13 and (m > 35 and m < 40):
+        result = 164
 
-    elif jam == 13 and (menit > 30 and menit < 35):
-        Now = 163
+    elif j == 13 and (m > 40 and m < 45):
+        result = 165
 
-    elif jam == 13 and (menit > 35 and menit < 40):
-        Now = 164
+    elif j == 13 and (m > 45 and m < 50):
+        result = 166
 
-    elif jam == 13 and (menit > 40 and menit < 45):
-        Now = 165
+    elif j == 13 and (m > 50 and m < 55):
+        result = 167
 
-    elif jam == 13 and (menit > 45 and menit < 50):
-        Now = 166
+    elif j == 13 and (m > 55 and m < 0):
+        result = 168
 
-    elif jam == 13 and (menit > 50 and menit < 55):
-        Now = 167
+    elif j == 14 and (m > 0 and m < 5):
+        result = 169
 
-    elif jam == 13 and (menit > 55 and menit < 0):
-        Now = 168
+    elif j == 14 and (m > 5 and m < 10):
+        result = 170
 
-    elif jam == 14 and (menit > 0 and menit < 5):
-        Now = 169
+    elif j == 14 and (m > 10 and m < 15):
+        result = 171
 
-    elif jam == 14 and (menit > 5 and menit < 10):
-        Now = 170
+    elif j == 14 and (m > 15 and m < 20):
+        result = 172
 
-    elif jam == 14 and (menit > 10 and menit < 15):
-        Now = 171
+    elif j == 14 and (m > 20 and m < 25):
+        result = 173
 
-    elif jam == 14 and (menit > 15 and menit < 20):
-        Now = 172
+    elif j == 14 and (m > 25 and m < 30):
+        result = 174
 
-    elif jam == 14 and (menit > 20 and menit < 25):
-        Now = 173
+    elif j == 14 and (m > 30 and m < 35):
+        result = 175
 
-    elif jam == 14 and (menit > 25 and menit < 30):
-        Now = 174
+    elif j == 14 and (m > 35 and m < 40):
+        result = 176
 
-    elif jam == 14 and (menit > 30 and menit < 35):
-        Now = 175
+    elif j == 14 and (m > 40 and m < 45):
+        result = 177
 
-    elif jam == 14 and (menit > 35 and menit < 40):
-        Now = 176
+    elif j == 14 and (m > 45 and m < 50):
+        result = 178
 
-    elif jam == 14 and (menit > 40 and menit < 45):
-        Now = 177
+    elif j == 14 and (m > 50 and m < 55):
+        result = 179
 
-    elif jam == 14 and (menit > 45 and menit < 50):
-        Now = 178
+    elif j == 14 and (m > 55 and m < 0):
+        result = 180
 
-    elif jam == 14 and (menit > 50 and menit < 55):
-        Now = 179
+    elif j == 15 and (m > 0 and m < 5):
+        result = 181
 
-    elif jam == 14 and (menit > 55 and menit < 0):
-        Now = 180
+    elif j == 15 and (m > 5 and m < 10):
+        result = 182
 
-    elif jam == 15 and (menit > 0 and menit < 5):
-        Now = 181
+    elif j == 15 and (m > 10 and m < 15):
+        result = 183
 
-    elif jam == 15 and (menit > 5 and menit < 10):
-        Now = 182
+    elif j == 15 and (m > 15 and m < 20):
+        result = 184
 
-    elif jam == 15 and (menit > 10 and menit < 15):
-        Now = 183
+    elif j == 15 and (m > 20 and m < 25):
+        result = 185
+    elif j == 15 and (m > 25 and m < 30):
+        result = 186
 
-    elif jam == 15 and (menit > 15 and menit < 20):
-        Now = 184
+    elif j == 15 and (m > 30 and m < 35):
+        result = 187
 
-    elif jam == 15 and (menit > 20 and menit < 25):
-        Now = 185
-    elif jam == 15 and (menit > 25 and menit < 30):
-        Now = 186
+    elif j == 15 and (m > 35 and m < 40):
+        result = 188
 
-    elif jam == 15 and (menit > 30 and menit < 35):
-        Now = 187
+    elif j == 15 and (m > 40 and m < 45):
+        result = 189
 
-    elif jam == 15 and (menit > 35 and menit < 40):
-        Now = 188
+    elif j == 15 and (m > 45 and m < 50):
+        result = 190
 
-    elif jam == 15 and (menit > 40 and menit < 45):
-        Now = 189
+    elif j == 15 and (m > 50 and m < 55):
+        result = 191
 
-    elif jam == 15 and (menit > 45 and menit < 50):
-        Now = 190
+    elif j == 15 and (m > 55 and m < 0):
+        result = 192
 
-    elif jam == 15 and (menit > 50 and menit < 55):
-        Now = 191
+    elif j == 16 and (m > 0 and m < 5):
+        result = 193
 
-    elif jam == 15 and (menit > 55 and menit < 0):
-        Now = 192
+    elif j == 16 and (m > 5 and m < 10):
+        result = 194
 
-    elif jam == 16 and (menit > 0 and menit < 5):
-        Now = 193
+    elif j == 16 and (m > 10 and m < 15):
+        result = 195
 
-    elif jam == 16 and (menit > 5 and menit < 10):
-        Now = 194
+    elif j == 16 and (m > 15 and m < 20):
+        result = 196
 
-    elif jam == 16 and (menit > 10 and menit < 15):
-        Now = 195
+    elif j == 16 and (m > 20 and m < 25):
+        result = 197
 
-    elif jam == 16 and (menit > 15 and menit < 20):
-        Now = 196
+    elif j == 16 and (m > 25 and m < 30):
+        result = 198
 
-    elif jam == 16 and (menit > 20 and menit < 25):
-        Now = 197
+    elif j == 16 and (m > 30 and m < 35):
+        result = 199
 
-    elif jam == 16 and (menit > 25 and menit < 30):
-        Now = 198
+    elif j == 16 and (m > 35 and m < 40):
+        result = 200
 
-    elif jam == 16 and (menit > 30 and menit < 35):
-        Now = 199
+    elif j == 16 and (m > 40 and m < 45):
+        result = 201
 
-    elif jam == 16 and (menit > 35 and menit < 40):
-        Now = 200
+    elif j == 16 and (m > 45 and m < 50):
+        result = 202
 
-    elif jam == 16 and (menit > 40 and menit < 45):
-        Now = 201
+    elif j == 16 and (m > 50 and m < 55):
+        result = 203
 
-    elif jam == 16 and (menit > 45 and menit < 50):
-        Now = 202
+    elif j == 16 and (m > 55 and m < 0):
+        result = 204
 
-    elif jam == 16 and (menit > 50 and menit < 55):
-        Now = 203
+    elif j == 17 and (m > 0 and m < 5):
+        result = 205
 
-    elif jam == 16 and (menit > 55 and menit < 0):
-        Now = 204
+    elif j == 17 and (m > 5 and m < 10):
+        result = 206
 
-    elif jam == 17 and (menit > 0 and menit < 5):
-        Now = 205
+    elif j == 17 and (m > 10 and m < 15):
+        result = 207
 
-    elif jam == 17 and (menit > 5 and menit < 10):
-        Now = 206
+    elif j == 17 and (m > 15 and m < 20):
+        result = 208
 
-    elif jam == 17 and (menit > 10 and menit < 15):
-        Now = 207
+    elif j == 17 and (m > 20 and m < 25):
+        result = 209
 
-    elif jam == 17 and (menit > 15 and menit < 20):
-        Now = 208
+    elif j == 17 and (m > 25 and m < 30):
+        result = 210
 
-    elif jam == 17 and (menit > 20 and menit < 25):
-        Now = 209
+    elif j == 17 and (m > 30 and m < 35):
+        result = 211
 
-    elif jam == 17 and (menit > 25 and menit < 30):
-        Now = 210
+    elif j == 17 and (m > 35 and m < 40):
+        result = 212
 
-    elif jam == 17 and (menit > 30 and menit < 35):
-        Now = 211
+    elif j == 17 and (m > 40 and m < 45):
+        result = 213
 
-    elif jam == 17 and (menit > 35 and menit < 40):
-        Now = 212
+    elif j == 17 and (m > 45 and m < 50):
+        result = 214
 
-    elif jam == 17 and (menit > 40 and menit < 45):
-        Now = 213
+    elif j == 17 and (m > 50 and m < 55):
+        result = 215
 
-    elif jam == 17 and (menit > 45 and menit < 50):
-        Now = 214
+    elif j == 17 and (m > 55 and m < 0):
+        result = 216
 
-    elif jam == 17 and (menit > 50 and menit < 55):
-        Now = 215
+    elif j == 18 and (m > 0 and m < 5):
+        result = 217
 
-    elif jam == 17 and (menit > 55 and menit < 0):
-        Now = 216
+    elif j == 18 and (m > 5 and m < 10):
+        result = 218
 
-    elif jam == 18 and (menit > 0 and menit < 5):
-        Now = 217
+    elif j == 18 and (m > 10 and m < 15):
+        result = 219
 
-    elif jam == 18 and (menit > 5 and menit < 10):
-        Now = 218
+    elif j == 18 and (m > 15 and m < 20):
+        result = 220
 
-    elif jam == 18 and (menit > 10 and menit < 15):
-        Now = 219
+    elif j == 18 and (m > 20 and m < 25):
+        result = 221
 
-    elif jam == 18 and (menit > 15 and menit < 20):
-        Now = 220
+    elif j == 18 and (m > 25 and m < 30):
+        result = 222
 
-    elif jam == 18 and (menit > 20 and menit < 25):
-        Now = 221
+    elif j == 18 and (m > 30 and m < 35):
+        result = 223
 
-    elif jam == 18 and (menit > 25 and menit < 30):
-        Now = 222
+    elif j == 18 and (m > 35 and m < 40):
+        result = 224
 
-    elif jam == 18 and (menit > 30 and menit < 35):
-        Now = 223
+    elif j == 18 and (m > 40 and m < 45):
+        result = 225
 
-    elif jam == 18 and (menit > 35 and menit < 40):
-        Now = 224
+    elif j == 18 and (m > 45 and m < 50):
+        result = 226
 
-    elif jam == 18 and (menit > 40 and menit < 45):
-        Now = 225
+    elif j == 18 and (m > 50 and m < 55):
+        result = 227
 
-    elif jam == 18 and (menit > 45 and menit < 50):
-        Now = 226
+    elif j == 18 and (m > 55 and m < 0):
+        result = 228
 
-    elif jam == 18 and (menit > 50 and menit < 55):
-        Now = 227
+    elif j == 19 and (m > 0 and m < 5):
+        result = 229
 
-    elif jam == 18 and (menit > 55 and menit < 0):
-        Now = 228
+    elif j == 19 and (m > 5 and m < 10):
+        result = 230
 
-    elif jam == 19 and (menit > 0 and menit < 5):
-        Now = 229
+    elif j == 19 and (m > 10 and m < 15):
+        result = 231
 
-    elif jam == 19 and (menit > 5 and menit < 10):
-        Now = 230
+    elif j == 19 and (m > 15 and m < 20):
+        result = 232
 
-    elif jam == 19 and (menit > 10 and menit < 15):
-        Now = 231
+    elif j == 19 and (m > 20 and m < 25):
+        result = 233
 
-    elif jam == 19 and (menit > 15 and menit < 20):
-        Now = 232
+    elif j == 19 and (m > 25 and m < 30):
+        result = 234
 
-    elif jam == 19 and (menit > 20 and menit < 25):
-        Now = 233
+    elif j == 19 and (m > 30 and m < 35):
+        result = 235
 
-    elif jam == 19 and (menit > 25 and menit < 30):
-        Now = 234
+    elif j == 19 and (m > 35 and m < 40):
+        result = 236
 
-    elif jam == 19 and (menit > 30 and menit < 35):
-        Now = 235
+    elif j == 19 and (m > 40 and m < 45):
+        result = 237
 
-    elif jam == 19 and (menit > 35 and menit < 40):
-        Now = 236
+    elif j == 19 and (m > 45 and m < 50):
+        result = 238
 
-    elif jam == 19 and (menit > 40 and menit < 45):
-        Now = 237
+    elif j == 19 and (m > 50 and m < 55):
+        result = 239
 
-    elif jam == 19 and (menit > 45 and menit < 50):
-        Now = 238
+    elif j == 19 and (m > 55 and m < 0):
+        result = 240
 
-    elif jam == 19 and (menit > 50 and menit < 55):
-        Now = 239
+    elif j == 20 and (m > 0 and m < 5):
+        result = 241
 
-    elif jam == 19 and (menit > 55 and menit < 0):
-        Now = 240
+    elif j == 20 and (m > 5 and m < 10):
+        result = 242
 
-    elif jam == 20 and (menit > 0 and menit < 5):
-        Now = 241
+    elif j == 20 and (m > 10 and m < 15):
+        result = 243
 
-    elif jam == 20 and (menit > 5 and menit < 10):
-        Now = 242
+    elif j == 20 and (m > 15 and m < 20):
+        result = 244
 
-    elif jam == 20 and (menit > 10 and menit < 15):
-        Now = 243
+    elif j == 20 and (m > 20 and m < 25):
+        result = 245
 
-    elif jam == 20 and (menit > 15 and menit < 20):
-        Now = 244
+    elif j == 20 and (m > 25 and m < 30):
+        result = 246
 
-    elif jam == 20 and (menit > 20 and menit < 25):
-        Now = 245
+    elif j == 20 and (m > 30 and m < 35):
+        result = 247
 
-    elif jam == 20 and (menit > 25 and menit < 30):
-        Now = 246
+    elif j == 20 and (m > 35 and m < 40):
+        result = 248
 
-    elif jam == 20 and (menit > 30 and menit < 35):
-        Now = 247
+    elif j == 20 and (m > 40 and m < 45):
+        result = 249
 
-    elif jam == 20 and (menit > 35 and menit < 40):
-        Now = 248
+    elif j == 20 and (m > 45 and m < 50):
+        result = 250
 
-    elif jam == 20 and (menit > 40 and menit < 45):
-        Now = 249
+    elif j == 20 and (m > 50 and m < 55):
+        result = 251
 
-    elif jam == 20 and (menit > 45 and menit < 50):
-        Now = 250
+    elif j == 20 and (m > 55 and m < 0):
+        result = 252
 
-    elif jam == 20 and (menit > 50 and menit < 55):
-        Now = 251
+    elif j == 21 and (m > 0 and m < 5):
+        result = 253
 
-    elif jam == 20 and (menit > 55 and menit < 0):
-        Now = 252
+    elif j == 21 and (m > 5 and m < 10):
+        result = 254
 
-    elif jam == 21 and (menit > 0 and menit < 5):
-        Now = 253
+    elif j == 21 and (m > 10 and m < 15):
+        result = 255
 
-    elif jam == 21 and (menit > 5 and menit < 10):
-        Now = 254
+    elif j == 21 and (m > 15 and m < 20):
+        result = 256
 
-    elif jam == 21 and (menit > 10 and menit < 15):
-        Now = 255
+    elif j == 21 and (m > 20 and m < 25):
+        result = 257
 
-    elif jam == 21 and (menit > 15 and menit < 20):
-        Now = 256
+    elif j == 21 and (m > 25 and m < 30):
+        result = 258
 
-    elif jam == 21 and (menit > 20 and menit < 25):
-        Now = 257
+    elif j == 21 and (m > 30 and m < 35):
+        result = 259
 
-    elif jam == 21 and (menit > 25 and menit < 30):
-        Now = 258
+    elif j == 21 and (m > 35 and m < 40):
+        result = 260
 
-    elif jam == 21 and (menit > 30 and menit < 35):
-        Now = 259
+    elif j == 21 and (m > 40 and m < 45):
+        result = 261
 
-    elif jam == 21 and (menit > 35 and menit < 40):
-        Now = 260
+    elif j == 21 and (m > 45 and m < 50):
+        result = 262
 
-    elif jam == 21 and (menit > 40 and menit < 45):
-        Now = 261
+    elif j == 21 and (m > 50 and m < 55):
+        result = 263
 
-    elif jam == 21 and (menit > 45 and menit < 50):
-        Now = 262
+    elif j == 21 and (m > 55 and m < 0):
+        result = 264
 
-    elif jam == 21 and (menit > 50 and menit < 55):
-        Now = 263
+    elif j == 22 and (m > 0 and m < 5):
+        result = 265
 
-    elif jam == 21 and (menit > 55 and menit < 0):
-        Now = 264
+    elif j == 22 and (m > 5 and m < 10):
+        result = 266
 
-    elif jam == 22 and (menit > 0 and menit < 5):
-        Now = 265
+    elif j == 22 and (m > 10 and m < 15):
+        result = 267
 
-    elif jam == 22 and (menit > 5 and menit < 10):
-        Now = 266
+    elif j == 22 and (m > 15 and m < 20):
+        result = 268
 
-    elif jam == 22 and (menit > 10 and menit < 15):
-        Now = 267
+    elif j == 22 and (m > 20 and m < 25):
+        result = 269
 
-    elif jam == 22 and (menit > 15 and menit < 20):
-        Now = 268
+    elif j == 22 and (m > 25 and m < 30):
+        result = 270
 
-    elif jam == 22 and (menit > 20 and menit < 25):
-        Now = 269
+    elif j == 22 and (m > 30 and m < 35):
+        result = 271
 
-    elif jam == 22 and (menit > 25 and menit < 30):
-        Now = 270
+    elif j == 22 and (m > 35 and m < 40):
+        result = 272
 
-    elif jam == 22 and (menit > 30 and menit < 35):
-        Now = 271
+    elif j == 22 and (m > 40 and m < 45):
+        result = 273
 
-    elif jam == 22 and (menit > 35 and menit < 40):
-        Now = 272
+    elif j == 22 and (m > 45 and m < 50):
+        result = 274
 
-    elif jam == 22 and (menit > 40 and menit < 45):
-        Now = 273
+    elif j == 22 and (m > 50 and m < 55):
+        result = 275
 
-    elif jam == 22 and (menit > 45 and menit < 50):
-        Now = 274
+    elif j == 22 and (m > 55 and m < 0):
+        result = 276
 
-    elif jam == 22 and (menit > 50 and menit < 55):
-        Now = 275
+    elif j == 23 and (m > 0 and m < 5):
+        result = 277
 
-    elif jam == 22 and (menit > 55 and menit < 0):
-        Now = 276
+    elif j == 23 and (m > 5 and m < 10):
+        result = 278
 
-    elif jam == 23 and (menit > 0 and menit < 5):
-        Now = 277
+    elif j == 23 and (m > 10 and m < 15):
+        result = 279
 
-    elif jam == 23 and (menit > 5 and menit < 10):
-        Now = 278
+    elif j == 23 and (m > 15 and m < 20):
+        result = 280
 
-    elif jam == 23 and (menit > 10 and menit < 15):
-        Now = 279
+    elif j == 23 and (m > 20 and m < 25):
+        result = 281
 
-    elif jam == 23 and (menit > 15 and menit < 20):
-        Now = 280
+    elif j == 23 and (m > 25 and m < 30):
+        result = 282
 
-    elif jam == 23 and (menit > 20 and menit < 25):
-        Now = 281
+    elif j == 23 and (m > 30 and m < 35):
+        result = 283
 
-    elif jam == 23 and (menit > 25 and menit < 30):
-        Now = 282
+    elif j == 23 and (m > 35 and m < 40):
+        result = 284
 
-    elif jam == 23 and (menit > 30 and menit < 35):
-        Now = 283
+    elif j == 23 and (m > 40 and m < 45):
+        result = 285
 
-    elif jam == 23 and (menit > 35 and menit < 40):
-        Now = 284
+    elif j == 23 and (m > 45 and m < 50):
+        result = 286
 
-    elif jam == 23 and (menit > 40 and menit < 45):
-        Now = 285
+    elif j == 23 and (m > 50 and m < 55):
+        result = 287
 
-    elif jam == 23 and (menit > 45 and menit < 50):
-        Now = 286
+    elif j == 23 and (m > 55 and m < 0):
+        result = 288
 
-    elif jam == 23 and (menit > 50 and menit < 55):
-        Now = 287
-
-    elif jam == 23 and (menit > 55 and menit < 0):
-        Now = 288
-
-    return Now
+    return result

@@ -27,7 +27,6 @@ db = firebase.database()
 timeNow = datetime.now()
 jam = timeNow.hour
 menit = timeNow.minute
-timestamp = timeNow.strftime("%H:%M")
 
 
 def cekHari():
@@ -58,11 +57,10 @@ def cekHari():
 
 waktu = wk.cekWaktu(jam, menit)
 hari = cekHari()
-day = date.today().strftime("%A")
 idrelay = [1, 2, 3, 4]
 
 
-def preprocessingData(w, h):
+def preprocessingData(w, h, ir):
     data = pd.read_csv('FixData.csv')
     data = pd.DataFrame(data, columns=['waktu', 'hari', 'idrelay', 'status'])
     x = data.iloc[:, 0:3].values
@@ -78,33 +76,30 @@ def preprocessingData(w, h):
     model.add(tf.keras.layers.Dense(units=2, activation='softmax'))
     model.compile(optimizer='adam',
                   loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.fit(x_train, y_train, epochs=750, batch_size=128)
+    model.fit(x_train, y_train, epochs=1150, batch_size=128)
     xData = model.evaluate(x_test, y_test, batch_size=128)
-    df = pd.DataFrame({'waktu': [w, w, w, w], 'hari': [
-                      h, h, h, h], 'idrelay': [1, 2, 3, 4]})
+    df = pd.DataFrame({'waktu': [w], 'hari': [h], 'idrelay': [ir]})
     dataf = df.values
     dataf = sc.fit_transform(dataf)
     predict = model.predict(dataf)
-    akurasi = float(xData[1])
 
-    arr_pred = []
-    for i in range(len(predict)):
-        arr_pred.append(np.argmax(predict[i]))
-        print(w, h, idrelay[i], arr_pred[i], "Nilai Akurasi = ", akurasi)
-        convert = int(arr_pred[i])
-        if convert == 0:
-            convert = "OFF"
-        else:
-            convert = "ON"
+    yData = np.argmax(predict)
+    akurasi = float(xData[1])
+    status = int(yData)
+
+    return status, akurasi
+
+
+def proses_kirim():
+    for i in range(4):
+        data_preprocessing = preprocessingData(waktu, hari, idrelay[i])
+        print(waktu, hari, idrelay[i],
+              data_preprocessing[0], data_preprocessing[1])
         head = 'relay'
         head += str(i+1)
-        db.child("Relay4Channel").child("behavior").child(head).update(
-            {"waktu": str(timestamp), "interval": w, "hari": str(day), "idrelay": idrelay[i], "status": convert})
-
-    db.child("Relay4Channel").child("behavior").update({"akurasi": akurasi})
-
-    return akurasi
+        db.child("behavior").child(head).update(
+            {"waktu": waktu, "hari": hari, "idrelay": idrelay[i], "status": data_preprocessing[0], "akurasi": data_preprocessing[1]})
 
 
 while True:
-    preprocessingData(waktu, hari)
+    proses_kirim()

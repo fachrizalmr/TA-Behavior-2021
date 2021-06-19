@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/jpg" href="images\switch.png" />
+    <title>Relay 4 Channel</title>
+</head>
+
+<body>
+    <div class="container" style="text-align: center; margin-top: 50px;">
+        <h2>Monitor & Control Penyaluran Energi Listrik Ke <b>RELAY 4 Channel</b></h2>
+
+        <div class="card text-center">
+            <div class="card-header">
+                Tugas Akhir 2021 [<b style="color:greenyellow;">LOG-Data</b>]
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <div class="custom-control custom-switch">
+                        <label id="modes"></label>
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" onchange="mode(this.checked)">
+                        <label class="custom-control-label" for="customSwitch1">
+                            <span id="mode">
+                            </span>
+                        </label>
+                    </div>
+                </h5>
+                <div class="table-responsive" style="margin-top:15px;">
+                    <table class="table">
+                        <caption>list of device activity</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Relay ID</th>
+                                <th>=</th>
+                                <th scope="col">Pengguna</th>
+                                <th scope="col">Waktu</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><span id="lampic1"></td>
+                                <td><span id="cekuser1"></td>
+                                <td><span id="cekwaktu1"></td>
+                                <td><span id="cekstatus1"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><span id="lampic2"></td>
+                                <td><span id="cekuser2"></td>
+                                <td><span id="cekwaktu2"></td>
+                                <td><span id="cekstatus2"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><span id="lampic3"></td>
+                                <td><span id="cekuser3"></td>
+                                <td><span id="cekwaktu3"></td>
+                                <td><span id="cekstatus3"></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><span id="lampic4"></td>
+                                <td><span id="cekuser4"></td>
+                                <td><span id="cekwaktu4"></td>
+                                <td><span id="cekstatus4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                Telkom University | Muhammad Fachrizal Ramdani | 1103174125 
+            </div>
+        </div>
+
+    </div>
+</body>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAUXrAk1Z_8kRa3NH1czDXUE5xPTP-gJ_Y",
+            authDomain: "cloudta2021-fa4af.firebaseapp.com",
+            databaseURL: "https://cloudta2021-fa4af-default-rtdb.firebaseio.com",
+            projectId: "cloudta2021-fa4af",
+            storageBucket: "cloudta2021-fa4af.appspot.com",
+            messagingSenderId: "848296022315",
+            appId: "1:848296022315:web:0dc1ded93b270d22a2356e",
+            measurementId: "G-PR3BHBKG25"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.database();
+
+        var mode = db.ref('mode');
+
+        mode.on('value', showData, showError);
+
+        function showData(items) {
+            console.log(items.val())
+            
+        }
+
+        function showError(error) {
+            console.log(error)
+        }
+
+    </script>
+    
+</html>
