@@ -1,8 +1,8 @@
 from tensorflow.python.ops.functional_ops import While
-import waktu as wk
 import tensorflow as tf
 import numpy as np
 import pandas as pd
+import waktu as wk
 import time
 from datetime import datetime
 from datetime import date
