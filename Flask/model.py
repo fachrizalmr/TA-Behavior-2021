@@ -68,14 +68,14 @@ def preprocessingData(w, h):
     x = data.iloc[:, 0:3].values
     y = data.iloc[:, -1].values
     x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.2, random_state=0)
+        x, y, test_size=0.1, random_state=0)
     sc = StandardScaler()
     x_train = sc.fit_transform(x_train)
     x_test = sc.fit_transform(x_test)
     model = tf.keras.models.Sequential()
     model.add(tf.keras.layers.Dense(units=3, activation='relu'))
-    model.add(tf.keras.layers.Dense(units=375, activation='relu'))
-    model.add(tf.keras.layers.Dense(units=2, activation='softmax'))
+    model.add(tf.keras.layers.Dense(units=28, activation='relu'))
+    model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
     model.compile(optimizer='adam',
                   loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     model.fit(x_train, y_train, epochs=750, batch_size=128)

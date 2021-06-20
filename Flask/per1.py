@@ -76,7 +76,7 @@ def preprocessingData(w, h, ir):
     model.add(tf.keras.layers.Dense(units=2, activation='softmax'))
     model.compile(optimizer='adam',
                   loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.fit(x_train, y_train, epochs=1150, batch_size=128)
+    model.fit(x_train, y_train, epochs=115, batch_size=128)
     xData = model.evaluate(x_test, y_test, batch_size=128)
     df = pd.DataFrame({'waktu': [w], 'hari': [h], 'idrelay': [ir]})
     dataf = df.values
@@ -97,7 +97,7 @@ def proses_kirim():
               data_preprocessing[0], data_preprocessing[1])
         head = 'relay'
         head += str(i+1)
-        db.child("behavior").child(head).update(
+        db.child("Relay4Channel").child("behavior").child(head).update(
             {"waktu": waktu, "hari": hari, "idrelay": idrelay[i], "status": data_preprocessing[0], "akurasi": data_preprocessing[1]})
 
 
