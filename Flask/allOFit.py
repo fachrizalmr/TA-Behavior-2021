@@ -60,7 +60,8 @@ day = date.today().strftime("%A")
 idrelay = [1, 2, 3, 4]
 hari = cekHari()
 waktu = wk.cekWaktu(jam, menit)
-data = pd.read_csv('FixData.csv')
+data = pd.read_csv(
+    'C:/Users/INNO/Documents/GitHub/TA-Behavior-2021/Flask/FixData.csv')
 data = pd.DataFrame(data, columns=['waktu', 'hari', 'idrelay', 'status'])
 x = data.iloc[:, 0:3].values
 y = data.iloc[:, -1].values
@@ -76,11 +77,12 @@ model.add(tf.keras.layers.Dense(units=8, activation='relu'))
 model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=800, batch_size=128)
+model.fit(x_train, y_train, epochs=1200, batch_size=128)
 xData = model.evaluate(x_test, y_test, batch_size=128)
 akurasi = float(xData[1])
 error = float(xData[0])
-df = pd.read_csv('FixData.csv')
+df = pd.read_csv(
+    'C:/Users/INNO/Documents/GitHub/TA-Behavior-2021/Flask/FixData.csv')
 df = df.drop(['status'], axis=1)
 dataf = df.values
 dataf = sc.fit_transform(dataf)
