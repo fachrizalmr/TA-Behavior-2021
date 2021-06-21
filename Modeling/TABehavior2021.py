@@ -61,7 +61,7 @@ idrelay = [1, 2, 3, 4]
 hari = cekHari()
 waktu = wk.cekWaktu(jam, menit)
 data = pd.read_csv(
-    'C:/Users/INNO/Documents/GitHub/TA-Behavior-2021/Flask/FixData.csv')
+    'C:/Users/INNO/Documents/GitHub/TA-Behavior-2021/Modeling/FixData.csv')
 data = pd.DataFrame(data, columns=['waktu', 'hari', 'idrelay', 'status'])
 x = data.iloc[:, 0:3].values
 y = data.iloc[:, -1].values
@@ -82,7 +82,7 @@ xData = model.evaluate(x_test, y_test, batch_size=128)
 akurasi = float(xData[1])
 error = float(xData[0])
 df = pd.read_csv(
-    'C:/Users/INNO/Documents/GitHub/TA-Behavior-2021/Flask/FixData.csv')
+    'C:/Users/INNO/Documents/GitHub/TA-Behavior-2021/Modeling/FixData.csv')
 df = df.drop(['status'], axis=1)
 dataf = df.values
 dataf = sc.fit_transform(dataf)
