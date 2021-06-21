@@ -77,7 +77,7 @@ model.add(tf.keras.layers.Dense(units=8, activation='relu'))
 model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=1200, batch_size=128)
+model.fit(x_train, y_train, epochs=900, batch_size=128)
 xData = model.evaluate(x_test, y_test, batch_size=128)
 akurasi = float(xData[1])
 error = float(xData[0])
