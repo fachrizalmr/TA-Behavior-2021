@@ -77,8 +77,17 @@ model.add(tf.keras.layers.Dense(units=8, activation='relu'))
 model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=900, batch_size=128)
-xData = model.evaluate(x_test, y_test, batch_size=128)
+model.fit(x_train, y_train, epochs=1150, batch_size=256)
+
+print(model.layers[0].weights)
+# print(model.layers[0].bias.numpy())
+print(model.layers[1].weights)
+# print(model.layers[1].bias.numpy())
+print(model.layers[2].weights)
+# print(model.layers[2].bias.numpy())
+print(model.layers[3].weights)
+# print(model.layers[3].bias.numpy())
+xData = model.evaluate(x_test, y_test, batch_size=256)
 akurasi = float(xData[1])
 error = float(xData[0])
 df = pd.read_csv(
@@ -95,7 +104,7 @@ for i in range(len(predict)):
 df['prediksi'] = arr_pred
 
 db.child("Relay4Channel").child("behavior").update(
-    {"akurasi": akurasi, "loss": error})
+    {"akurasi": akurasi, "loss": error, "waktu": str(timestamp)})
 
 
 def reportR1():
@@ -176,3 +185,5 @@ reportR3()
 reportR4()
 print("Akurasi : ", akurasi)
 print("Loss/Error : ", error)
+print("Interval : ", waktu)
+print("Waktu : ", str(timestamp))

@@ -1,4 +1,5 @@
 def cekWaktu(j, m):
+    now = []
     if j == 0 and m >= 0 and m <= 5:
         now = 1
 
