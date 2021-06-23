@@ -104,7 +104,7 @@ for i in range(len(predict)):
 df['prediksi'] = arr_pred
 
 db.child("Relay4Channel").child("behavior").update(
-    {"akurasi": akurasi, "loss": error, "waktu": str(timestamp)})
+    {"akurasi": akurasi, "loss": error, "waktu": str(timestamp), "hari": str(day)})
 
 
 def reportR1():
@@ -183,7 +183,9 @@ reportR1()
 reportR2()
 reportR3()
 reportR4()
-print("Akurasi : ", akurasi)
-print("Loss/Error : ", error)
+
+print("Hari : ", str(day))
 print("Interval : ", waktu)
 print("Waktu : ", str(timestamp))
+print("Akurasi : ", akurasi)
+print("Loss/Error : ", error)
