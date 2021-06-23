@@ -23,6 +23,7 @@ String relayStatus2;
 String relayStatus3;
 String relayStatus4;
 float akurasi = 0;
+String waktu;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
@@ -78,6 +79,7 @@ void loop() {
   Serial.println(newModes);
   if (newModes == "behavior") {
     akurasi = Firebase.getFloat("/Relay4Channel/behavior/akurasi");
+    waktu = Firebase.getString("/Relay4Channel/behavior/waktu");
     relayStatus1 = Firebase.getString("/Relay4Channel/behavior/relay1/status");
     relayStatus2 = Firebase.getString("/Relay4Channel/behavior/relay2/status");
     relayStatus3 = Firebase.getString("/Relay4Channel/behavior/relay3/status");
@@ -110,10 +112,15 @@ void loop() {
     lcd.setCursor(0, 0);
     lcd.print("Mode : " + newModes + "   ");
     lcd.setCursor(0, 1);
-    lcd.print("Akurasi : ");
+    lcd.print("Akurasi :   ");
     lcd.setCursor(11, 1);
     lcd.print(akurasi);
-    delay(1000);
+    delay(750);
+    lcd.setCursor(0, 1);
+    lcd.print("Waktu :    ");
+    lcd.setCursor(10, 1);
+    lcd.print(waktu);
+    delay(750);
     lcd.setCursor(0, 0);
     lcd.print("R1: " + relayStatus1 + " R2: " + relayStatus2 + "  ");
     lcd.setCursor(0, 1);
