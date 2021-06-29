@@ -2,7 +2,7 @@ import cv2
 import os
 wajahDir = 'dataWajah'
 latihDir = 'latihWajah'
-cam = cv2.VideoCapture(1)
+cam = cv2.VideoCapture(0)
 cam.set(3, 640)
 cam.set(4, 480)
 faceDetector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
