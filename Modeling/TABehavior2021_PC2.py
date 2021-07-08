@@ -132,8 +132,8 @@ def reportR1():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
-        "Fachri").collection(str(timestamp)).document(str(idRelay)).set(data)
+    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                                          ).collection("Fachri").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -156,8 +156,8 @@ def reportR2():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
-        "Nando").collection(str(timestamp)).document(str(idRelay)).set(data)
+    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                                          ).collection("Nando").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -180,8 +180,8 @@ def reportR3():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
-        "Rahel").collection(str(timestamp)).document(str(idRelay)).set(data)
+    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                                          ).collection("Rahel").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -204,8 +204,8 @@ def reportR4():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
-        "Anya").collection(str(timestamp)).document(str(idRelay)).set(data)
+    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                                          ).collection("Anya").document(str(timestamp)).set(data)
 
     print(output)
 
