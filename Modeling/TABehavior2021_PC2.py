@@ -9,12 +9,20 @@ from datetime import date
 import schedule
 import pyrebase
 import json
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from tensorflow.python.eager.context import num_gpus
 from os import read, stat_result
 from re import T, X
+
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
+
+dbStore = firestore.client()
 
 
 def cekHari():
@@ -49,6 +57,7 @@ config = {
     "databaseURL": "https://cloudta2021-fa4af-default-rtdb.firebaseio.com",
     "storageBucket": "cloudta2021-fa4af.appspot.com"
 }
+
 
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
@@ -120,6 +129,12 @@ def reportR1():
     db.child("Relay4Channel").child("behavior").child("relay1").update({"waktu": str(
         timestamp), "interval": int(waktu), "hari": str(day), "idrelay": int(idRelay), "status": str(statusRelay)})
 
+    data = {'status': str(statusRelay), 'idrelay': int(idRelay),
+            'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
+
+    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
+        "Fachri").collection(str(timestamp)).document(str(idRelay)).set(data)
+
     print(output)
 
 
@@ -137,6 +152,12 @@ def reportR2():
 
     db.child("Relay4Channel").child("behavior").child("relay2").update({"waktu": str(
         timestamp), "interval": int(waktu), "hari": str(day), "idrelay": int(idRelay), "status": str(statusRelay)})
+
+    data = {'status': str(statusRelay), 'idrelay': int(idRelay),
+            'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
+
+    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
+        "Nando").collection(str(timestamp)).document(str(idRelay)).set(data)
 
     print(output)
 
@@ -156,6 +177,12 @@ def reportR3():
     db.child("Relay4Channel").child("behavior").child("relay3").update({"waktu": str(
         timestamp), "interval": int(waktu), "hari": str(day), "idrelay": int(idRelay), "status": str(statusRelay)})
 
+    data = {'status': str(statusRelay), 'idrelay': int(idRelay),
+            'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
+
+    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
+        "Rahel").collection(str(timestamp)).document(str(idRelay)).set(data)
+
     print(output)
 
 
@@ -173,6 +200,12 @@ def reportR4():
 
     db.child("Relay4Channel").child("behavior").child("relay4").update({"waktu": str(
         timestamp), "interval": int(waktu), "hari": str(day), "idrelay": int(idRelay), "status": str(statusRelay)})
+
+    data = {'status': str(statusRelay), 'idrelay': int(idRelay),
+            'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
+
+    dbStore.collection(str(day + " " + datetime.today().strftime('%d-%m-%Y'))).document(
+        "Anya").collection(str(timestamp)).document(str(idRelay)).set(data)
 
     print(output)
 
