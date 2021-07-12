@@ -12,6 +12,7 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from tensorflow import keras
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -83,7 +84,8 @@ model.add(tf.keras.layers.Dense(units=3, activation='relu'))
 model.add(tf.keras.layers.Dense(units=26, activation='relu'))
 model.add(tf.keras.layers.Dense(units=8, activation='relu'))
 model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
-model.compile(optimizer='adam',
+opt = keras.optimizers.Adam(learning_rate=0.1)
+model.compile(optimizer=opt,
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 model.fit(x_train, y_train, epochs=1150, batch_size=256)
 
@@ -133,7 +135,7 @@ def reportR1():
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
     dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("Fachri").document(str(timestamp)).set(data)
+                                                          ).collection("pengguna1").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -157,7 +159,7 @@ def reportR2():
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
     dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("Nando").document(str(timestamp)).set(data)
+                                                          ).collection("pengguna2").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -181,7 +183,7 @@ def reportR3():
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
     dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("Rahel").document(str(timestamp)).set(data)
+                                                          ).collection("pengguna3").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -205,7 +207,7 @@ def reportR4():
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
     dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("Anya").document(str(timestamp)).set(data)
+                                                          ).collection("pengguna4").document(str(timestamp)).set(data)
 
     print(output)
 
