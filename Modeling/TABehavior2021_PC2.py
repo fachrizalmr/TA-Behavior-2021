@@ -13,7 +13,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from tensorflow import keras
-from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from tensorflow.python.eager.context import num_gpus
@@ -29,25 +30,25 @@ dbStore = firestore.client()
 def cekHari():
     cekNow = date.today().strftime("%A")
     if cekNow == 'Monday':
-        now = 1
+        now = 0
 
     elif cekNow == 'Tuesday':
-        now = 2
+        now = 1
 
     elif cekNow == 'Wednesday':
-        now = 3
+        now = 2
 
     elif cekNow == 'Thursday':
-        now = 4
+        now = 3
 
     elif cekNow == 'Friday':
-        now = 5
+        now = 4
 
     elif cekNow == 'Saturday':
-        now = 6
+        now = 5
 
     elif cekNow == 'Sunday':
-        now = 7
+        now = 6
 
     return now
 
@@ -59,7 +60,7 @@ config = {
     "storageBucket": "cloudta2021-fa4af.appspot.com"
 }
 
-
+DataHead = "Dataset Hasil Pengujian"
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 timeNow = datetime.now()
@@ -67,11 +68,15 @@ jam = timeNow.hour
 menit = timeNow.minute
 timestamp = timeNow.strftime("%H:%M")
 day = date.today().strftime("%A")
-idrelay = [1, 2, 3, 4]
+idrelay = [0, 1, 2, 3]
 hari = cekHari()
 waktu = wk.cekWaktu(jam, menit)
-data = pd.read_csv('FixData.csv')
+data = pd.read_csv('FixDataBind.csv')
 data = pd.DataFrame(data, columns=['waktu', 'hari', 'idrelay', 'status'])
+data['waktu'] = pd.factorize(data['waktu'])[0]
+data['hari'] = pd.factorize(data['hari'])[0]
+data['idrelay'] = pd.factorize(data['idrelay'])[0]
+data['status'] = pd.factorize(data['status'])[0]
 x = data.iloc[:, 0:3].values
 y = data.iloc[:, -1].values
 x_train, x_test, y_train, y_test = train_test_split(
@@ -84,10 +89,11 @@ model.add(tf.keras.layers.Dense(units=3, activation='relu'))
 model.add(tf.keras.layers.Dense(units=26, activation='relu'))
 model.add(tf.keras.layers.Dense(units=8, activation='relu'))
 model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
-opt = keras.optimizers.Adam(learning_rate=0.1)
+start = time.perf_counter()
+opt = keras.optimizers.Adam(learning_rate=0.01)
 model.compile(optimizer=opt,
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=1150, batch_size=256)
+model.fit(x_train, y_train, epochs=500, batch_size=128)
 
 print(model.layers[0].weights)
 # print(model.layers[0].bias.numpy())
@@ -97,10 +103,15 @@ print(model.layers[2].weights)
 # print(model.layers[2].bias.numpy())
 print(model.layers[3].weights)
 # print(model.layers[3].bias.numpy())
-xData = model.evaluate(x_test, y_test, batch_size=256)
+xData = model.evaluate(x_test, y_test, batch_size=128)
+elapsed = time.perf_counter() - start
 akurasi = float(xData[1])
 error = float(xData[0])
-df = pd.read_csv('FixData.csv')
+df = pd.read_csv('FixDataBind.csv')
+df['waktu'] = pd.factorize(df['waktu'])[0]
+df['hari'] = pd.factorize(df['hari'])[0]
+df['idrelay'] = pd.factorize(df['idrelay'])[0]
+df['status'] = pd.factorize(df['status'])[0]
 df = df.drop(['status'], axis=1)
 dataf = df.values
 dataf = sc.fit_transform(dataf)
@@ -112,6 +123,7 @@ for i in range(len(predict)):
 
 df['prediksi'] = arr_pred
 
+
 db.child("Relay4Channel").child("behavior").update(
     {"akurasi": akurasi, "loss": error, "waktu": str(timestamp), "hari": str(day)})
 
@@ -119,7 +131,7 @@ db.child("Relay4Channel").child("behavior").update(
 def reportR1():
     output = []
     output = df[(df['waktu'] == waktu) & (
-        df['hari'] == hari) & (df['idrelay'] == 1)]
+        df['hari'] == hari) & (df['idrelay'] == 0)]
 
     idRelay = output.iloc[0]['idrelay']
     sRelay = output.iloc[0]['prediksi']
@@ -134,8 +146,8 @@ def reportR1():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("pengguna1").document(str(timestamp)).set(data)
+    dbStore.collection(DataHead).document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                          ).collection("pengguna1").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -143,7 +155,7 @@ def reportR1():
 def reportR2():
     output = []
     output = df[(df['waktu'] == waktu) & (
-        df['hari'] == hari) & (df['idrelay'] == 2)]
+        df['hari'] == hari) & (df['idrelay'] == 1)]
 
     idRelay = output.iloc[0]['idrelay']
     sRelay = output.iloc[0]['prediksi']
@@ -158,8 +170,8 @@ def reportR2():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("pengguna2").document(str(timestamp)).set(data)
+    dbStore.collection(DataHead).document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                          ).collection("pengguna2").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -167,7 +179,7 @@ def reportR2():
 def reportR3():
     output = []
     output = df[(df['waktu'] == waktu) & (
-        df['hari'] == hari) & (df['idrelay'] == 3)]
+        df['hari'] == hari) & (df['idrelay'] == 2)]
 
     idRelay = output.iloc[0]['idrelay']
     sRelay = output.iloc[0]['prediksi']
@@ -182,8 +194,8 @@ def reportR3():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("pengguna3").document(str(timestamp)).set(data)
+    dbStore.collection(DataHead).document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                          ).collection("pengguna3").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -191,7 +203,7 @@ def reportR3():
 def reportR4():
     output = []
     output = df[(df['waktu'] == waktu) & (
-        df['hari'] == hari) & (df['idrelay'] == 4)]
+        df['hari'] == hari) & (df['idrelay'] == 3)]
 
     idRelay = output.iloc[0]['idrelay']
     sRelay = output.iloc[0]['prediksi']
@@ -206,8 +218,8 @@ def reportR4():
     data = {'status': str(statusRelay), 'idrelay': int(idRelay),
             'akurasi': akurasi, 'loss': error, 'interval': int(waktu)}
 
-    dbStore.collection("Dataset Hasil Prediksi").document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
-                                                          ).collection("pengguna4").document(str(timestamp)).set(data)
+    dbStore.collection(DataHead).document(str(day + " " + datetime.today().strftime('%d-%m-%Y'))
+                                          ).collection("pengguna4").document(str(timestamp)).set(data)
 
     print(output)
 
@@ -217,8 +229,11 @@ reportR2()
 reportR3()
 reportR4()
 
+print('Elapsed %.3f seconds.' % elapsed)
 print("Hari : ", str(day))
 print("Interval : ", waktu)
 print("Waktu : ", str(timestamp))
 print("Akurasi : ", akurasi)
 print("Loss/Error : ", error)
+print(confusion_matrix(y, arr_pred))
+print(classification_report(y, arr_pred))
