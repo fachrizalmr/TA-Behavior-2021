@@ -93,7 +93,7 @@ start = time.perf_counter()
 opt = keras.optimizers.Adam(learning_rate=0.01)
 model.compile(optimizer=opt,
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=500, batch_size=128)
+model.fit(x_train, y_train, epochs=800, batch_size=258)
 
 print(model.layers[0].weights)
 # print(model.layers[0].bias.numpy())
@@ -103,7 +103,7 @@ print(model.layers[2].weights)
 # print(model.layers[2].bias.numpy())
 print(model.layers[3].weights)
 # print(model.layers[3].bias.numpy())
-xData = model.evaluate(x_test, y_test, batch_size=128)
+xData = model.evaluate(x_test, y_test, batch_size=258)
 elapsed = time.perf_counter() - start
 akurasi = float(xData[1])
 error = float(xData[0])
