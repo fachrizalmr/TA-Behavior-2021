@@ -16,7 +16,7 @@ while True:
     faces = faceDetector.detectMultiScale(grey, 1.3, 5)
     for (x, y, w, h) in faces:
         frame = cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
-        namaFile = 'wajah.'+str(faceID)+'.'+str(ambilData)+'.jpg'
+        namaFile = 'user.'+str(faceID)+'.'+str(ambilData)+'.jpg'
         cv2.imwrite(wajahDir+'/'+namaFile, frame)
         ambilData += 1
         roigrey = grey[y:y+h, x:x+w]

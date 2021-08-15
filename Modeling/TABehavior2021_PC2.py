@@ -71,6 +71,9 @@ day = date.today().strftime("%A")
 idrelay = [0, 1, 2, 3]
 hari = cekHari()
 waktu = wk.cekWaktu(jam, menit)
+# waktu = 120
+# hari = 0
+
 data = pd.read_csv('FixDataBind.csv')
 data = pd.DataFrame(data, columns=['waktu', 'hari', 'idrelay', 'status'])
 data['waktu'] = pd.factorize(data['waktu'])[0]
@@ -90,11 +93,10 @@ model.add(tf.keras.layers.Dense(units=26, activation='relu'))
 model.add(tf.keras.layers.Dense(units=8, activation='relu'))
 model.add(tf.keras.layers.Dense(units=2, activation='sigmoid'))
 start = time.perf_counter()
-opt = keras.optimizers.Adam(learning_rate=0.01)
+opt = keras.optimizers.Adam(learning_rate=0.02)
 model.compile(optimizer=opt,
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=800, batch_size=258)
-
+model.fit(x_train, y_train, epochs=1100, batch_size=256)
 print(model.layers[0].weights)
 # print(model.layers[0].bias.numpy())
 print(model.layers[1].weights)
@@ -103,7 +105,7 @@ print(model.layers[2].weights)
 # print(model.layers[2].bias.numpy())
 print(model.layers[3].weights)
 # print(model.layers[3].bias.numpy())
-xData = model.evaluate(x_test, y_test, batch_size=258)
+xData = model.evaluate(x_test, y_test, batch_size=256)
 elapsed = time.perf_counter() - start
 akurasi = float(xData[1])
 error = float(xData[0])
